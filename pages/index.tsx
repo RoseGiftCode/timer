@@ -45,7 +45,8 @@ export default function Home() {
           }}
         >
           <h1 style={{ color: '#0070f3', fontSize: '1.5rem' }}>Welcome to SuperDrop/h1>
-          <p style={{ color: '#555', fontSize: '1rem' }}>Stay tuned! The countdown is on, Seize the Opportunity.</p>
+          <p style={{ color: '#555', fontSize: '1rem' }}>Unlock exclusive crypto airdrops with ease! SuperDrop lets you discover and claim tokens from various blockchain networks in just a few clicks. Stay ahead in the crypto world with automated token tracking, real-time updates, and seamless wallet integration. Seize the Opportunity!
+</p>
           <CountdownTimer targetDate={targetDate} style={{ fontSize: '2rem' }} />
         </div>
       </main>
