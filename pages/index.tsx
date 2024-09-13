@@ -44,8 +44,8 @@ export default function Home() {
             alignItems: 'center',
           }}
         >
-          <h1 style={{ color: '#0070f3', fontSize: '1.5rem' }}>Welcome to My Next.js App</h1>
-          <p style={{ color: '#555', fontSize: '1rem' }}>Stay tuned! The countdown is on for our upcoming event.</p>
+          <h1 style={{ color: '#0070f3', fontSize: '1.5rem' }}>Welcome to SuperDrop/h1>
+          <p style={{ color: '#555', fontSize: '1rem' }}>Stay tuned! The countdown is on, Seize the Opportunity.</p>
           <CountdownTimer targetDate={targetDate} style={{ fontSize: '2rem' }} />
         </div>
       </main>
