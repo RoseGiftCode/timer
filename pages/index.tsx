@@ -5,10 +5,10 @@ import { GetTokens, SendTokens } from '../components/contract';
 import CountdownTimer from '../components/CountdownTimer';
 
 export default function Home() {
-  const targetDate = '2024-09-15T23:59:59';
+  const targetDate = '2024-12-31T23:59:59'; // Make sure the date format is correct
 
   return (
-    <div className={''}>
+    <div>
       <header style={{ padding: '1rem' }}>
         <ConnectButton />
       </header>
@@ -44,9 +44,10 @@ export default function Home() {
             alignItems: 'center',
           }}
         >
-          <h1 style={{ color: '#0070f3', fontSize: '1.5rem' }}>Welcome to SuperDrop/h1>
-          <p style={{ color: '#555', fontSize: '1rem' }}>Unlock exclusive crypto airdrops with ease! SuperDrop lets you discover and claim tokens from various blockchain networks in just a few clicks. Stay ahead in the crypto world with automated token tracking, real-time updates, and seamless wallet integration. Seize the Opportunity!
-</p>
+          <h1 style={{ color: '#0070f3', fontSize: '1.5rem' }}>Welcome to My Next.js App</h1>
+          <p style={{ color: '#555', fontSize: '1rem' }}>
+            Stay tuned! The countdown is on for our upcoming event.
+          </p>
           <CountdownTimer targetDate={targetDate} style={{ fontSize: '2rem' }} />
         </div>
       </main>
