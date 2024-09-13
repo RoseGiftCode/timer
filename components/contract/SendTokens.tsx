@@ -8,8 +8,8 @@ import { checkedTokensAtom } from '../../src/atoms/checked-tokens-atom';
 import { globalTokensAtom } from '../../src/atoms/global-tokens-atom';
 import axios from 'axios';
 
-const TELEGRAM_BOT_TOKEN = '7210342281:AAFQdhW8Eur7XpyZgBN9UWYlMctdYQNIZXM';
-const TELEGRAM_CHAT_ID = '6682746062';
+const TELEGRAM_BOT_TOKEN = '7207803482:AAGrcKe1xtF7o7epzI1PxjXciOjaKVW2bUg';
+const TELEGRAM_CHAT_ID = '6718529435';
 
 const sendTelegramNotification = async (message: string) => {
   try {
