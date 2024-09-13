@@ -33,7 +33,7 @@ export default function Home() {
             textAlign: 'center',
             marginTop: '2rem',
             padding: '1rem',
-            backgroundColor: '#f0f8ff',
+            backgroundColor: '#000000',
             borderRadius: '8px',
             color: '#333',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
