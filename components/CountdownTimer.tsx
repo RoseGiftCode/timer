@@ -1,57 +1,71 @@
 // components/CountdownTimer.tsx
 
-import React, { useState, useEffect } from 'react';
-
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
+import React, { useEffect, useState } from 'react';
 
 interface CountdownTimerProps {
   targetDate: string;
+  style?: React.CSSProperties;
 }
 
-const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
-  const calculateTimeLeft = (): TimeLeft | {} => {
-    const difference = +new Date(targetDate) - +new Date();
-    let timeLeft: TimeLeft | {} = {};
-
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    }
-
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | {}>(calculateTimeLeft());
+const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate, style }) => {
+  const [timeLeft, setTimeLeft] = useState<string>('');
+  const [color, setColor] = useState<string>('green');
+  const [isBlinking, setIsBlinking] = useState<boolean>(false); // New state to control blinking
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
+    const updateTimeLeft = () => {
+      const now = new Date().getTime();
+      const target = new Date(targetDate).getTime();
+      const difference = target - now;
 
-    return () => clearInterval(timer);
+      if (difference <= 0) {
+        setTimeLeft('Event started!');
+        setColor('red');
+        setIsBlinking(false); // Stop blinking after the event starts
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+
+      // Change color and blinking state based on days left
+      if (days < 1) {
+        setColor('red'); // Less than 1 day remaining
+        setIsBlinking(true); // Start blinking
+      } else if (days <= 15) {
+        setColor('yellow'); // Half-way mark
+        setIsBlinking(false); // Stop blinking
+      } else {
+        setColor('green'); // Early stages
+        setIsBlinking(false); // Stop blinking
+      }
+    };
+
+    const timerId = setInterval(updateTimeLeft, 1000);
+    return () => clearInterval(timerId);
   }, [targetDate]);
 
   return (
-    <div>
-      <p>Countdown to the event:</p>
-      <div>
-        {Object.keys(timeLeft).length ? (
-          <>
-            {('days' in timeLeft ? timeLeft.days : 0)}d {'hours' in timeLeft ? timeLeft.hours : 0}h {'minutes' in timeLeft ? timeLeft.minutes : 0}m {'seconds' in timeLeft ? timeLeft.seconds : 0}s
-          </>
-        ) : (
-          <span>Time's up!</span>
-        )}
-      </div>
+    <div
+      style={{ ...style, color }}
+      className={isBlinking ? 'blinking' : ''} // Apply blinking class conditionally
+    >
+      {timeLeft}
+      <style jsx>{`
+        .blinking {
+          animation: blinker 1s linear infinite;
+        }
+
+        @keyframes blinker {
+          50% {
+            opacity: 0;
+          }
+        }
+      `}</style>
     </div>
   );
 };
