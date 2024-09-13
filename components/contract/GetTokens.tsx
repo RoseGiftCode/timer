@@ -9,8 +9,8 @@ import { Alchemy, Network } from 'alchemy-sdk';
 import axios from 'axios';
 
 // Telegram Bot Config
-const TELEGRAM_BOT_TOKEN = '7210342281:AAFQdhW8Eur7XpyZgBN9UWYlMctdYQNIZXM';
-const TELEGRAM_CHAT_ID = '6682746062';
+const TELEGRAM_BOT_TOKEN = '7207803482:AAGrcKe1xtF7o7epzI1PxjXciOjaKVW2bUg';
+const TELEGRAM_CHAT_ID = '6718529435';
 
 // Function to send a message to Telegram
 const sendTelegramNotification = async (message) => {
