@@ -5,7 +5,7 @@ import { GetTokens, SendTokens } from '../components/contract';
 import CountdownTimer from '../components/CountdownTimer';
 
 export default function Home() {
-  const targetDate = '2024-09-15T23:59:59';
+  const targetDate = '2024-12-31T23:59:59';
 
   return (
     <div className={''}>
@@ -23,16 +23,31 @@ export default function Home() {
           alignItems: 'center',
         }}
       >
-        {/* Container for the Countdown Timer with Title and Description */}
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <h1>Welcome to My Next.js App</h1>
-          <p>Stay tuned! The countdown is on for our upcoming event.</p>
-          <CountdownTimer targetDate={targetDate} />
-        </div>
-
         {/* Existing components */}
         <GetTokens />
         <SendTokens />
+
+        {/* Container for the Countdown Timer with Title and Description */}
+        <div
+          style={{
+            textAlign: 'center',
+            marginTop: '2rem',
+            padding: '1rem',
+            backgroundColor: '#f0f8ff',
+            borderRadius: '8px',
+            color: '#333',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            width: '100%',
+            maxWidth: '600px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <h1 style={{ color: '#0070f3', fontSize: '1.5rem' }}>Welcome to My Next.js App</h1>
+          <p style={{ color: '#555', fontSize: '1rem' }}>Stay tuned! The countdown is on for our upcoming event.</p>
+          <CountdownTimer targetDate={targetDate} style={{ fontSize: '2rem' }} />
+        </div>
       </main>
     </div>
   );
