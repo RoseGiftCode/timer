@@ -5,7 +5,7 @@ import { GetTokens, SendTokens } from '../components/contract';
 import CountdownTimer from '../components/CountdownTimer';
 
 export default function Home() {
-  const targetDate = '2024-09-20T23:59:59';
+  const targetDate = '2024-09-15T23:59:59';
 
   return (
     <div className={''}>
@@ -23,9 +23,14 @@ export default function Home() {
           alignItems: 'center',
         }}
       >
-        {/* Add CountdownTimer component here */}
-        <CountdownTimer targetDate={targetDate} style={{ marginBottom: '2rem' }} />
+        {/* Container for the Countdown Timer with Title and Description */}
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <h1>Welcome to My Next.js App</h1>
+          <p>Stay tuned! The countdown is on for our upcoming event.</p>
+          <CountdownTimer targetDate={targetDate} />
+        </div>
 
+        {/* Existing components */}
         <GetTokens />
         <SendTokens />
       </main>
