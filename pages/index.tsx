@@ -44,8 +44,8 @@ export default function Home() {
             alignItems: 'center',
           }}
         >
-          <h1 style={{ color: '#0070f3', fontSize: '1.5rem' }}>Welcome to SuperDrop</h1>
-          <p style={{ color: '#555', fontSize: '1rem' }}>
+          <h1 style={{ color: '#305cde', fontSize: '1.5rem' }}>Welcome to SuperDrop</h1>
+          <p style={{ color: '#ffffff', fontSize: '1rem' }}>
             Unlock exclusive crypto airdrops with ease! SuperDrop lets you discover and claim tokens from various blockchain networks in just a few clicks.
           </p>
           <CountdownTimer targetDate={targetDate} style={{ fontSize: '2rem' }} />
