@@ -48,7 +48,10 @@ export default function Home() {
           <p style={{ color: '#ffffff', fontSize: '1rem' }}>
             Unlock exclusive crypto airdrops with ease! SuperDrop lets you discover and claim tokens from various blockchain networks in just a few clicks.
           </p>
-          <CountdownTimer targetDate={targetDate} style={{ fontSize: '2rem' }} />
+          <CountdownTimer
+            targetDate={targetDate}
+            style={{ fontSize: '2rem', fontWeight: 'bold' }} // Added fontWeight
+          />
         </div>
       </main>
     </div>
