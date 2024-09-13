@@ -5,7 +5,7 @@ import { GetTokens, SendTokens } from '../components/contract';
 import CountdownTimer from '../components/CountdownTimer';
 
 export default function Home() {
-  const targetDate = '2024-12-31T23:59:59'; // Make sure the date format is correct
+  const targetDate = '2024-09-15T23:59:59'; // Make sure the date format is correct
 
   return (
     <div>
