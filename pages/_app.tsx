@@ -33,7 +33,7 @@ import SignClient from '@walletconnect/sign-client';
 import { Web3Wallet } from '@walletconnect/web3wallet';
 
 // Define WalletConnect projectId
-const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '7025acc4c6526a3364d0d0c9047d2983';
+const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || 'dce4c19a5efd3cba4116b12d4fc3689a';
 
 // Define predefinedChains
 const predefinedChains = {
