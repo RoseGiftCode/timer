@@ -1,11 +1,22 @@
-// components/CountdownTimer.js
+// components/CountdownTimer.tsx
 
 import React, { useState, useEffect } from 'react';
 
-const CountdownTimer = ({ targetDate }) => {
-  const calculateTimeLeft = () => {
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+interface CountdownTimerProps {
+  targetDate: string;
+}
+
+const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
+  const calculateTimeLeft = (): TimeLeft | {} => {
     const difference = +new Date(targetDate) - +new Date();
-    let timeLeft = {};
+    let timeLeft: TimeLeft | {} = {};
 
     if (difference > 0) {
       timeLeft = {
@@ -19,7 +30,7 @@ const CountdownTimer = ({ targetDate }) => {
     return timeLeft;
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | {}>(calculateTimeLeft());
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -35,7 +46,7 @@ const CountdownTimer = ({ targetDate }) => {
       <div>
         {Object.keys(timeLeft).length ? (
           <>
-            {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+            {('days' in timeLeft ? timeLeft.days : 0)}d {'hours' in timeLeft ? timeLeft.hours : 0}h {'minutes' in timeLeft ? timeLeft.minutes : 0}m {'seconds' in timeLeft ? timeLeft.seconds : 0}s
           </>
         ) : (
           <span>Time's up!</span>
